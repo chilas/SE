@@ -32,7 +32,9 @@ namespace SE.DataStructures.LinkeList
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            _head = null;
+            _tail = null;
+            Count = 0;
         }
 
         public bool Contains(T item)
