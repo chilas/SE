@@ -68,18 +68,21 @@ namespace SE.DataStructures.LinkeList
                             _tail = previous;
                         }
                     }
-                }
-                else
-                {
-                    _head = _head.Next;
-                    if (_head == null)
+                    else
                     {
-                        _tail = _head;
+                        _head = _head.Next;
+                        if (_head == null)
+                        {
+                            _tail = _head;
+                        }
                     }
+                    Count--;
+                    return true;
                 }
+                previous = current;
+                current = current.Next;
             }
-            Count--;
-            return true;
+            return false;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
