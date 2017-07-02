@@ -155,5 +155,23 @@ namespace SE.DataStructures.DoublyLinkeList
             }
         }
 
+        public void RemoveLast(T value)
+        {
+            if (Count != 0)
+            {
+                if (Count == 1)
+                {
+                    _head = null;
+                    _tail = null;
+                }
+                else
+                {
+                    _tail.Previous.Next = null;
+                    _tail = _tail.Previous;
+                }
+            }
+            Count--;
+        }
+
     }
 }
