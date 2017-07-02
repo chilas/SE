@@ -110,5 +110,27 @@ namespace SE.DataStructures.DoublyLinkeList
         {
             return ((IEnumerable<T>)this).GetEnumerator();
         }
+
+        public void AddFirst(T value)
+        {
+            LinkedListNode<T> node = new LinkedListNode<T>(value);
+            LinkedListNode<T> temp = _head;
+
+            _head = node;
+
+            _head.Next = temp;
+            if (Count == 0)
+            {
+                _tail = _head;
+            }
+            else
+            {
+                temp.Previous = _head;
+            }
+
+            Count++;
+        }
+
+
     }
 }
