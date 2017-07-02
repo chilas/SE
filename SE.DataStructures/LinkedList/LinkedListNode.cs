@@ -8,6 +8,6 @@ namespace SE.DataStructures.LinkeList
         }
 
         public T Value { get; set; }
-        public LinkeListNode<T> Next { get; internal set; }
+        public LinkedListNode<T> Next { get; internal set; }
     }
 }
