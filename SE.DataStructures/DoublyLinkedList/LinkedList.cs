@@ -9,6 +9,8 @@ namespace SE.DataStructures.DoublyLinkeList
         private LinkedListNode<T> _head;
         private LinkedListNode<T> _tail;
 
+        public LinkedListNode<T> Head => _head;
+        public LinkedListNode<T> Tail => _tail;
         public int Count { get; private set; }
 
         public bool IsReadOnly => false;
