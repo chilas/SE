@@ -52,7 +52,34 @@ namespace SE.DataStructures.LinkeList
 
         public bool Remove(T item)
         {
-            throw new NotImplementedException();
+            LinkedListNode<T> previous = null;
+            LinkedListNode<T> current = _head;
+
+            while (current != null)
+            {
+                if (current.Value.Equals(item))
+                {
+                    if (previous != null)
+                    {
+                        previous.Next = current.Next;
+
+                        if (previous.Next == null)
+                        {
+                            _tail = previous;
+                        }
+                    }
+                }
+                else
+                {
+                    _head = _head.Next;
+                    if (_head == null)
+                    {
+                        _tail = _head;
+                    }
+                }
+            }
+            Count--;
+            return true;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
