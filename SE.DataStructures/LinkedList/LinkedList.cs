@@ -96,7 +96,12 @@ namespace SE.DataStructures.LinkeList
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            LinkedListNode<T> current = _head;
+            while (current != null)
+            {
+                yield return current.Value;
+                current = current.Next;
+            }
         }
     }
 }
