@@ -56,7 +56,12 @@ namespace SE.DataStructures.LinkeList
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            LinkedListNode<T> current = _head;
+            while (current != null)
+            {
+                yield return current.Value;
+                current = current.Next;
+            }
         }
 
         public bool Remove(T item)
@@ -96,12 +101,7 @@ namespace SE.DataStructures.LinkeList
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            LinkedListNode<T> current = _head;
-            while (current != null)
-            {
-                yield return current.Value;
-                current = current.Next;
-            }
+            return ((IEnumerable<T>)this).GetEnumerator();
         }
     }
 }
