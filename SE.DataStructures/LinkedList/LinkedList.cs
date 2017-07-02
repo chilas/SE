@@ -53,7 +53,12 @@ namespace SE.DataStructures.LinkeList
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            throw new NotImplementedException();
+            LinkedListNode<T> current = _head;
+            while (current != null)
+            {
+                array[arrayIndex++] = current.Value;
+                current = current.Next;
+            }
         }
 
         public IEnumerator<T> GetEnumerator()
