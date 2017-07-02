@@ -15,19 +15,7 @@ namespace SE.DataStructures.DoublyLinkeList
 
         public void Add(T value)
         {
-            LinkedListNode<T> node = new LinkedListNode<T>(value);
-            if (_head == null)
-            {
-                _head = node;
-                _tail = node;
-            }
-            else
-            {
-                _tail.Next = node;
-                _tail = node;
-            }
-
-            Count++;
+            AddLast(value);
         }
 
         public void Clear()
@@ -131,6 +119,22 @@ namespace SE.DataStructures.DoublyLinkeList
             Count++;
         }
 
+        public void AddLast(T value)
+        {
+            LinkedListNode<T> node = new LinkedListNode<T>(value);
+
+            if (Count == 0)
+            {
+                _head = node;
+            }
+            else
+            {
+                _tail.Next = node;
+                node.Previous = _tail;
+            }
+            _tail = node;
+            Count++;
+        }
 
     }
 }
