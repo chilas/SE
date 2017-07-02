@@ -136,5 +136,24 @@ namespace SE.DataStructures.DoublyLinkeList
             Count++;
         }
 
+        public void RemoveFirst(T value)
+        {
+            if (Count != 0)
+            {
+                _head = _head.Next;
+
+                Count--;
+
+                if (Count == 0)
+                {
+                    _tail = null;
+                }
+                else
+                {
+                    _head.Previous = null;
+                }
+            }
+        }
+
     }
 }
