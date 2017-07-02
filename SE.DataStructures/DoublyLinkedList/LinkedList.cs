@@ -72,20 +72,20 @@ namespace SE.DataStructures.DoublyLinkeList
                     {
                         previous.Next = current.Next;
 
-                        if (previous.Next == null)
+                        if (current.Next == null)
                         {
                             _tail = previous;
                         }
+                        else
+                        {
+                            current.Next.Previous = previous;
+                        }
+                        Count--;
                     }
                     else
                     {
-                        _head = _head.Next;
-                        if (_head == null)
-                        {
-                            _tail = _head;
-                        }
+                        RemoveFirst();
                     }
-                    Count--;
                     return true;
                 }
                 previous = current;
@@ -136,7 +136,7 @@ namespace SE.DataStructures.DoublyLinkeList
             Count++;
         }
 
-        public void RemoveFirst(T value)
+        public void RemoveFirst()
         {
             if (Count != 0)
             {
@@ -155,7 +155,7 @@ namespace SE.DataStructures.DoublyLinkeList
             }
         }
 
-        public void RemoveLast(T value)
+        public void RemoveLast()
         {
             if (Count != 0)
             {
