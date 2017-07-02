@@ -1,46 +1,61 @@
 using System;
-// using System.Collections;
-// using System.Collections.Generic;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace SE.DataStructures.LinkeList
 {
     public class LinkeList<T> : System.Collections.Generic.ICollection<T>
     {
-        int ICollection<T>.Count => throw new NotImplementedException();
+        private LinkedListNode<T> _head;
+        private LinkedListNode<T> _tail;
 
-        bool ICollection<T>.IsReadOnly => throw new NotImplementedException();
+        public int Count { get; private set; }
 
-        void ICollection<T>.Add(T item)
+        public bool IsReadOnly => throw new NotImplementedException();
+
+        public void Add(T value)
+        {
+            LinkedListNode<T> node = new LinkedListNode<T>(value);
+            if (_head == null)
+            {
+                _head = node;
+                _tail = node;
+            }
+            else
+            {
+                _tail.Next = node;
+                _tail = node;
+            }
+
+            Count++;
+        }
+
+        public void Clear()
         {
             throw new NotImplementedException();
         }
 
-        void ICollection<T>.Clear()
+        public bool Contains(T item)
         {
             throw new NotImplementedException();
         }
 
-        bool ICollection<T>.Contains(T item)
+        public void CopyTo(T[] array, int arrayIndex)
         {
             throw new NotImplementedException();
         }
 
-        void ICollection<T>.CopyTo(T[] array, int arrayIndex)
+        public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
         }
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
+        public bool Remove(T item)
         {
             throw new NotImplementedException();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        bool ICollection<T>.Remove(T item)
         {
             throw new NotImplementedException();
         }
