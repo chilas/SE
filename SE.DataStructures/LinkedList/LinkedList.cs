@@ -37,7 +37,16 @@ namespace SE.DataStructures.LinkeList
 
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            LinkedListNode<T> current = _head;
+            while (current != null)
+            {
+                if (current.Value.Equals(item))
+                {
+                    return true;
+                }
+                current = current.Next;
+            }
+            return false;
         }
 
         public void CopyTo(T[] array, int arrayIndex)
