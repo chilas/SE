@@ -5,9 +5,9 @@ namespace SE.Tests
 {
     public class LinkedListTest
     {
-        [Fact]
-        public void ()
-        {
-        }
+        // [Fact]
+        // public void ()
+        // {
+        // }
     }
 }
